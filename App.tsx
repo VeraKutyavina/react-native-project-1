@@ -1,20 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+const image = require('./back.png');
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {/*<View style={styles.top}>*/}
+
+      {/*</View>*/}
+      <ImageBackground source={image} resizeMode="cover" style={styles.top} />
+      <View style={styles.content}>
+        <Text style={styles.title}>Kermit page</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 48,
   },
+  top: {
+    backgroundColor: "black",
+    height: 112,
+  },
+  title: {
+    fontSize: 20,
+    textTransform: 'uppercase',
+  },
+  content: {
+    padding: 32,
+  }
 });
