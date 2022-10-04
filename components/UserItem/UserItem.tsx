@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Image, ImageURISource, StyleSheet} from 'react-native';
+import { View, Text, Image, ImageURISource } from 'react-native';
+import { styles } from "./styles";
 
 const camera = require('../../assets/camera.jpg');
 const phone = require('../../assets/phone.jpg');
@@ -31,45 +32,5 @@ const UserItem = ({ name, date, type, photo }: UserItemType) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 16,
-    borderColor: '#CCCCCC',
-    borderBottomWidth: 1,
-    paddingRight: 24,
-  },
-  userWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  userName: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  time: {
-    fontSize: 14,
-    fontColor: '#B6B6B6',
-  },
-  img: {
-    height: 70,
-    width: 70,
-    borderRadius: 10,
-  },
-  phoneIcon: {
-    height: 28,
-    width: 28,
-  },
-  cameraIcon: {
-    height: 28,
-    width: 30,
-  },
-});
 
 export default UserItem;
