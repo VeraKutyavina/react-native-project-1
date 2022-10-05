@@ -1,21 +1,15 @@
 
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
-import UserList from './components/UserList';
 import UserMessageList from "./components/UserMessageList";
+import UserProfile from "./components/UserProfile";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View>
       {/*<UserList />*/}
-      <UserMessageList />
+      {/*<UserMessageList />*/}
+      <UserProfile />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 48,
-    paddingHorizontal: 8,
-  },
-});

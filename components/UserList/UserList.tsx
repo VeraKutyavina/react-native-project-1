@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import UserItem from "./UserItem";
 
 const user2 = require('../../assets/user2.jpeg');
@@ -28,7 +28,7 @@ const UserList = () => {
   ] as const;
 
   return(
-    <View>
+    <View style={styles.container}>
       <ScrollView
         scrollEventThrottle={16}
       >
@@ -39,5 +39,12 @@ const UserList = () => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 48,
+    paddingHorizontal: 8,
+  },
+});
 
 export default UserList;
