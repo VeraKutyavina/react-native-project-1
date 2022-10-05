@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, Image, ImageURISource } from 'react-native';
 import { styles } from "./styles";
 
-const camera = require('../../assets/camera.jpg');
-const phone = require('../../assets/phone.jpg');
+const camera = require('../../../assets/camera.jpg');
+const phone = require('../../../assets/phone.jpg');
 
 export enum callType {
   call = 'Call',

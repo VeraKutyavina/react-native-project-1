@@ -1,8 +1,7 @@
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
-import UserItem from "../UserItem";
+import UserItem from "./UserItem";
 
-const user1 = require('../../assets/user1.jpeg');
 const user2 = require('../../assets/user2.jpeg');
 const user3 = require('../../assets/user3.png');
 
