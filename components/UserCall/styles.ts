@@ -26,18 +26,18 @@ export const styles = StyleSheet.create({
     opacity: 0.75,
   },
   buttonContainer: {
-    display: "flex",
+    display: 'flex',
     height: '100%',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttons: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
-    alignContent: "center",
-    justifyContent: "space-around",
+    alignContent: 'center',
+    justifyContent: 'space-around',
     width: '100%',
   },
   button: {

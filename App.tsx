@@ -5,14 +5,16 @@ import UserMessageList from "./components/UserMessageList";
 import UserProfile from "./components/UserProfile";
 import UserList from "./components/UserList";
 import UserCall from "./components/UserCall";
+import Gallery from "./components/Gallery/Gallery";
 
 export default function App() {
   return (
     <View>
-      <UserCall />
+      {/*<UserCall />*/}
       {/*<UserList />*/}
       {/*<UserMessageList />*/}
       {/*<UserProfile />*/}
+      <Gallery />
     </View>
   );
 }
