@@ -8,6 +8,7 @@ import UserCall from './components/UserCall';
 import Gallery from './components/Gallery';
 import ProductCard from './components/ProductCard';
 import Resume from "./components/Resume";
+import AcceptedOrder from "./components/AcceptedOrder";
 
 export default function App() {
   return (
@@ -18,7 +19,8 @@ export default function App() {
       {/*<UserProfile />*/}
       {/*<Gallery />*/}
       {/*<ProductCard />*/}
-      <Resume />
+      {/*<Resume />*/}
+      <AcceptedOrder />
     </View>
   );
 }
