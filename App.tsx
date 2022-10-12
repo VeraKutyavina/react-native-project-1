@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { View } from 'react-native';
+import React from 'react';
+import UserMessageList from './components/UserMessageList';
+import UserProfile from './components/UserProfile';
+import UserList from './components/UserList';
+import UserCall from './components/UserCall';
+import Gallery from './components/Gallery';
+import ProductCard from './components/ProductCard';
+import Resume from "./components/Resume";
+import AcceptedOrder from "./components/AcceptedOrder";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      {/*<UserCall />*/}
+      {/*<UserList />*/}
+      {/*<UserMessageList />*/}
+      {/*<UserProfile />*/}
+      {/*<Gallery />*/}
+      {/*<ProductCard />*/}
+      {/*<Resume />*/}
+      <AcceptedOrder />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
