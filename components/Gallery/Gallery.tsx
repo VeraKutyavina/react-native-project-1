@@ -1,6 +1,6 @@
 import React from 'react';
-import {Image, View} from "react-native";
-import {styles} from "./styles";
+import {Image, View} from 'react-native';
+import {styles} from './styles';
 
 const img1 = require('../../assets/kermit.png');
 const img2 = require('../../assets/kiko.jpeg');

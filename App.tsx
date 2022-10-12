@@ -1,11 +1,12 @@
 
 import { View } from 'react-native';
 import React from 'react';
-import UserMessageList from "./components/UserMessageList";
-import UserProfile from "./components/UserProfile";
-import UserList from "./components/UserList";
-import UserCall from "./components/UserCall";
-import Gallery from "./components/Gallery/Gallery";
+import UserMessageList from './components/UserMessageList';
+import UserProfile from './components/UserProfile';
+import UserList from './components/UserList';
+import UserCall from './components/UserCall';
+import Gallery from './components/Gallery';
+import ProductCard from './components/ProductCard';
 
 export default function App() {
   return (
@@ -14,7 +15,8 @@ export default function App() {
       {/*<UserList />*/}
       {/*<UserMessageList />*/}
       {/*<UserProfile />*/}
-      <Gallery />
+      {/*<Gallery />*/}
+      <ProductCard />
     </View>
   );
 }
