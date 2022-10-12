@@ -7,6 +7,7 @@ import UserList from './components/UserList';
 import UserCall from './components/UserCall';
 import Gallery from './components/Gallery';
 import ProductCard from './components/ProductCard';
+import Resume from "./components/Resume";
 
 export default function App() {
   return (
@@ -16,7 +17,8 @@ export default function App() {
       {/*<UserMessageList />*/}
       {/*<UserProfile />*/}
       {/*<Gallery />*/}
-      <ProductCard />
+      {/*<ProductCard />*/}
+      <Resume />
     </View>
   );
 }

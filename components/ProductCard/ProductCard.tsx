@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
+import { Image, View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
 const tShirt = require('../../assets/t-shirt.jpeg');
