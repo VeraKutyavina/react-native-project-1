@@ -1,21 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
+import NavigateButtons from '../NavigateButtons';
 
 const users = [
-  "Test Test",
-  "Vera Kutyavina",
-  "Jeon Jungkook",
-  "Park Jimin",
+  'Test Test',
+  'Vera Kutyavina',
+  'Jeon Jungkook',
+  'Park Jimin',
 ]
 
-const UsersListScreen = () => {
+const UsersListScreen = ({ navigation }: any) => {
   return(
-    <View style={styles.container}>
-      {users.map((user, i) => (
-        <Text key={i}>{user}</Text>
-      ))
-      }
-    </View>
+    <>
+      <NavigateButtons navigation={navigation} />
+      <View style={styles.container}>
+        {users.map((user, i) => (
+          <Button
+            key={i}
+            title={user}
+            onPress={() => navigation.navigate('UserProfile')}
+          />
+        ))}
+      </View>
+    </>
   )
 }
 

@@ -1,11 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import NavigateButtons from "../NavigateButtons";
 
-const AboutUsScreen = () => {
+const AboutUsScreen = ({ navigation }: any) => {
   return(
-    <View style={styles.container}>
-      <Text> Here should be some information about us </Text>
-    </View>
+    <>
+      <NavigateButtons navigation={navigation} />
+      <View style={styles.container}>
+        <Text> Here should be some information about us </Text>
+      </View>
+    </>
   )
 }
 
