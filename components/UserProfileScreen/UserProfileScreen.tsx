@@ -5,8 +5,7 @@ const UserProfileScreen = () => {
   return(
     <>
       <View style={styles.container}>
-        <Text> User avatar </Text>
-        <Text> User name </Text>
+        <Text> Настройки какие-нибудь </Text>
       </View>
     </>
   )
