@@ -1,10 +1,14 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Buttons from './components/Buttons';
+import CustomInput from './components/Input';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Buttons />
+      <CustomInput />
       <StatusBar style="auto" />
     </View>
   );
