@@ -33,5 +33,14 @@ export const styles = StyleSheet.create({
     color: '#4b9d22',
     fontSize: 17,
     marginRight: 5,
-  }
+  },
+  totalPrice: {
+    fontWeight: "bold",
+    fontSize: 18,
+    margin: 16,
+  },
+  totalPriceNumber: {
+    color: '#4b9d22',
+    fontSize: 20,
+  },
 });
