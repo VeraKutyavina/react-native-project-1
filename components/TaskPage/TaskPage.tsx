@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite'
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import TodoStore from '../../store/todo'
@@ -12,11 +13,12 @@ const TaskPage = ({ navigation, route }: TTaskPage) => {
   const { itemId } = route.params;
   const todo = TodoStore.todos[itemId];
 
+
   const onRemove = () => {
     TodoStore.deleteTodo(todo.id);
     navigation.goBack();
   }
-
+ 
   return (
     <View style={styles.container}>
       <Text style={{...styles.title, textDecorationLine: todo.completed ? 'line-through' : 'underline'}}> {todo.title} </Text>
@@ -46,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TaskPage;
+export default observer(TaskPage);

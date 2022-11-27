@@ -21,7 +21,7 @@ const AppTodo = observer(() => {
         </Stack.Screen>
         <Stack.Screen name="TaskPage">
           {props => <TaskPage {...props} />}
-        </Stack.Screen>
+        </Stack.Screen> 
       </Stack.Navigator>
     </NavigationContainer>
   );

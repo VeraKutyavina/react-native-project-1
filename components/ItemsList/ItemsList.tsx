@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite'
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from "@expo/vector-icons";
 import TodoStore from '../../store/todo'
@@ -13,6 +14,7 @@ export type TItemsList = {
 }
 
 const ItemsList =({ navigation }: TItemsList) => {
+  console.log(TodoStore.todos)
   return(
     <FlatList
       data={TodoStore.todos}
@@ -59,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ItemsList;
+export default observer(ItemsList);
