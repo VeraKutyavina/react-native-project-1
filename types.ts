@@ -6,6 +6,8 @@ export type TProduct = {
   count: number;
   id: string;
   description: string;
-  photo?: ReactElement;
+  photo: ReactElement;
   rating: number;
+  inCart: number;
+  isFavorite: boolean;
 }

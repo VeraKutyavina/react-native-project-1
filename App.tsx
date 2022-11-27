@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProductList from "./components/ProductList";
 import ProductCard from "./components/ProductCard";
+import Cart from "./components/Cart";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,9 @@ const AppTodo = observer(() => {
         </Stack.Screen>
         <Stack.Screen name="ProductCard">
           {props => <ProductCard {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Cart">
+          {props => <Cart {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

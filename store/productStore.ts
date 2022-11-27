@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import {TProduct} from "../types";
 
 const coat1 = require('../assets/coat1.jpeg');
 const dress1 = require('../assets/dress1.jpeg');
@@ -8,7 +9,7 @@ const jacket2 = require('../assets/jacket2.jpeg');
 const shirt = require('../assets/shirt.jpeg');
 
 class ProductStore {
-  products = [
+  products: TProduct[] = [
     {
       name: 'Платье мини',
       price: 4999,
@@ -17,6 +18,8 @@ class ProductStore {
       description: 'Платье мини с полупрозрачными рукавами и декором на лифе',
       photo: dress1,
       rating: 5,
+      inCart: 0,
+      isFavorite: false,
     },
     {
       name: 'Платье-жакет',
@@ -26,6 +29,8 @@ class ProductStore {
       description: 'Приталенное платье-жакет с золотистыми пуговицами',
       photo: dress2,
       rating: 4,
+      inCart: 0,
+      isFavorite: false,
     },
     {
       name: 'Однобортное пальто',
@@ -35,6 +40,8 @@ class ProductStore {
       description: 'Однобортное пальто на пуговицах с ремнем',
       photo: coat1,
       rating: 5,
+      inCart: 0,
+      isFavorite: false,
     },
     {
       name: 'Стеганый пуховик',
@@ -44,6 +51,8 @@ class ProductStore {
       description: 'Стеганый пуховик с треугольным воротником',
       photo: jacket,
       rating: 5,
+      inCart: 0,
+      isFavorite: false,
     },
     {
       name: 'Пуховик',
@@ -53,6 +62,8 @@ class ProductStore {
       photo: jacket2,
       description: 'Пуховик миди с длинным поясом',
       rating: 4,
+      inCart: 0,
+      isFavorite: false,
     },
     {
       name: 'Рубашка',
@@ -62,8 +73,15 @@ class ProductStore {
       description: 'Удлиненная клетчатая рубашка',
       photo: shirt,
       rating: 5,
+      inCart: 0,
+      isFavorite: false,
     },
   ]
+
+  addCartCount(id: string) {
+    const newProd = this.products.find(product => product.id !== id);
+    if (newProd) this.products = [...this.products, {...newProd, inCart: newProd.inCart + 1}]
+  }
 
   constructor() {
     makeAutoObservable(this)
