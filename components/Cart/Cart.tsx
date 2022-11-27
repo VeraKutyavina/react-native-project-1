@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
 import { observer } from 'mobx-react-lite'
-import {View, Text, Image, ScrollView} from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import CartStore from '../../store/cartStore';
-import {styles} from "./styled";
+import { styles } from "./styled";
 
 type TCart = {
   navigation: any;

@@ -32,7 +32,7 @@ const ProductCard = ({ navigation, route }: TProductCard) => {
         <Text style={styles.price}> {product.price} руб. </Text>
         <Text style={styles.description}> {product.description} </Text>
         <View style={styles.rating}>
-          {rating.map(i => <AntDesign name={i <= product.rating ? 'star' : 'staro'} size={28} color="black" />)}
+          {rating.map(i => <AntDesign key={i} name={i <= product.rating ? 'star' : 'staro'} size={28} color="black" />)}
         </View>
         <TouchableOpacity onPress={addToCart} style={styles.addButton}>
           <Text style={styles.buttonText}>
