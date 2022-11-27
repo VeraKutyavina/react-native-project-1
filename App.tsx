@@ -1,37 +1,25 @@
-import React from 'react'
-import { View, Button, Text } from 'react-native'
-import { makeAutoObservable } from 'mobx'
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProductList from "./components/ProductList";
+import ProductCard from "./components/ProductCard";
 
-class Counter {
-  count = 0
+const Stack = createNativeStackNavigator();
 
-  constructor() {
-    makeAutoObservable(this)
-  }
+const AppTodo = observer(() => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home">
+          {props => <ProductList {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="ProductCard">
+          {props => <ProductCard {...props} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+})
 
-  increment() {
-    this.count += 1
-  }
-
-  decrement() {
-    this.count -= 1
-  }
-
-  reset() {
-    this.count = 0
-  }
-}
-
-const counter = new Counter()
-
-const App = observer(() => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>{counter.count}</Text>
-    <Button onPress={() => counter.increment()} title="+" />
-    <Button onPress={() => counter.decrement()} title="-" />
-    <Button onPress={() => counter.reset()} title="Reset" />
-  </View>
-))
-
-export default App
+export default AppTodo;
