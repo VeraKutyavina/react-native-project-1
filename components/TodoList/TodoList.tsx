@@ -1,29 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ItemsList from '../ItemsList';
 import TodoForm from '../TodoForm';
-import { TTask } from '../ItemsList/ItemsList';
 
 export type TTodoList = {
-  todos: TTask[];
-  removeTodo: (item: string) => void;
-  checkTodo: (item: string) => void;
   navigation: any;
-  addNewTodo: () => void;
-  text: string;
-  setText: any;
 }
 
-const TodoList = ({ removeTodo, checkTodo, todos, navigation, setText, text, addNewTodo }: TTodoList) => {
+const TodoList = ({ navigation }: TTodoList) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Todo List </Text>
-      <ItemsList navigation={navigation} checkTodo={checkTodo} removeTodo={removeTodo} todos={todos} />
+      <ItemsList navigation={navigation} />
       <TouchableOpacity onPress={() => navigation.navigate('DoneTasks')}>
         <Text> Перейти к выполненным </Text>
       </TouchableOpacity>
-      <TodoForm addNewTodo={addNewTodo} setText={setText} text={text} />
+      <TodoForm />
       <StatusBar style="auto" />
     </View>
   );

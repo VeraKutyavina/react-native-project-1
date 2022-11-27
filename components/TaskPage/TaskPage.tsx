@@ -1,31 +1,30 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite'
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { TTask } from '../ItemsList/ItemsList';
+import TodoStore from '../../store/todo'
 
 export type TTaskPage = {
-  todos: TTask[];
-  removeTodo: (item: string) => void;
-  checkTodo: (item: string) => void;
   navigation: any;
   route: any;
 }
 
-const TaskPage = ({ removeTodo, checkTodo, todos, navigation, route }: TTaskPage) => {
+const TaskPage = ({ navigation, route }: TTaskPage) => {
   const { itemId } = route.params;
-  const todo = todos[itemId];
+  const todo = TodoStore.todos[itemId];
+
 
   const onRemove = () => {
-    removeTodo(todo.title);
+    TodoStore.deleteTodo(todo.id);
     navigation.goBack();
   }
-
+ 
   return (
     <View style={styles.container}>
-      <Text style={{...styles.title, textDecorationLine: todo.checked ? 'line-through' : 'underline'}}> {todo.title} </Text>
+      <Text style={{...styles.title, textDecorationLine: todo.completed ? 'line-through' : 'underline'}}> {todo.title} </Text>
       <View>
         <Button title="Удалить" onPress={onRemove} />
-        <Button title="Сделано" onPress={() => checkTodo(todo.title)} />
+        <Button title="Сделано" onPress={() => TodoStore.completeTodo(todo.id)} />
         <Button title="Вернуться назад" onPress={() => navigation.goBack()} />
       </View>
       <StatusBar style="auto" />
@@ -49,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TaskPage;
+export default observer(TaskPage);

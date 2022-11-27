@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, StyleSheet, TextInput, View } from 'react-native';
+import TodoStore from '../../store/todo'
 
-type TTodoForm = {
-  text: string;
-  setText: (text: string) => void;
-  addNewTodo: () => void;
-}
+const TodoForm = () => {
+  const [text, setText] = useState<string>('');
+  const onSubmit = () => {
+    TodoStore.createTodo({
+      id: Date.now().toString(),
+      completed: false,
+      title: text
+    })
+    setText('');
+  }
 
-const TodoForm = ({ addNewTodo, setText, text }: TTodoForm) => {
   return(
     <View style={styles.searchForm}>
       <TextInput style={styles.inputStyles} onChangeText ={setText} value={text} />
-      <Button title="ADD" onPress={addNewTodo} />
+      <Button title="ADD" onPress={onSubmit} />
     </View>
   )
 }
