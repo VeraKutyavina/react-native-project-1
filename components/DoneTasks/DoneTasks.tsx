@@ -1,13 +1,9 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-
-export type TTask = {
-  title: string;
-  checked: boolean;
-}
+import { TodoTask } from '../../store/todo';
 
 export type TItemsList = {
-  todos: TTask[];
+  todos: TodoTask[];
 }
 
 const DoneTasks = ({ todos }: TItemsList) => {
