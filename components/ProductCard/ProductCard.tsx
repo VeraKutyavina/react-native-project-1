@@ -4,6 +4,7 @@ import { Image, View, Text, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react-lite'
 import ProductStore from '../../store/productStore';
 import CartStore from '../../store/cartStore';
+import FavoriteStore from '../../store/favoriteStore';
 import { styles } from './styled';
 import Header from "../Header";
 const rating = [1, 2, 3, 4, 5];
@@ -22,6 +23,16 @@ const ProductCard = ({ navigation, route }: TProductCard) => {
     CartStore.addToCart(product)
   }
 
+  const addToFavorites = () => {
+    FavoriteStore.createFavorite(product);
+    ProductStore.createFavorite(product.id)
+  }
+
+  const removeFromFavorites = () => {
+    FavoriteStore.deleteFavorite(product.id);
+    ProductStore.deleteFavorite(product.id)
+  }
+
   return (
     <View>
       <Header navigation={navigation} />
@@ -33,12 +44,24 @@ const ProductCard = ({ navigation, route }: TProductCard) => {
         <Text style={styles.description}> {product.description} </Text>
         <View style={styles.rating}>
           {rating.map(i => <AntDesign key={i} name={i <= product.rating ? 'star' : 'staro'} size={28} color="black" />)}
+          {product.isFavorite ?
+            <TouchableOpacity onPress={removeFromFavorites}>
+              <AntDesign style={{ marginLeft: 24 }} name='heart' size={24} color='black' />
+            </TouchableOpacity> :
+            <TouchableOpacity onPress={addToFavorites}>
+              <AntDesign style={{ marginLeft: 24 }} name='hearto' size={24} color='black' />
+            </TouchableOpacity>
+          }
         </View>
-        <TouchableOpacity onPress={addToCart} style={styles.addButton}>
-          <Text style={styles.buttonText}>
-            Add to cart
-          </Text>
-        </TouchableOpacity>
+        {
+          !product.inCart ? (
+            <TouchableOpacity onPress={addToCart} style={styles.addButton}>
+              <Text style={styles.buttonText}>
+                Add to cart
+              </Text>
+            </TouchableOpacity>
+          ) : <Text style={styles.warning}> Already in cart</Text>
+        }
       </View>
     </View>
   )

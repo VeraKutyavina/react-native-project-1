@@ -14,7 +14,9 @@ const Header = ({ navigation }: THeader) => {
     <View style={styles.container}>
       <Text style={styles.title}> LICHI </Text>
       <View style={styles.iconsWrapper}>
-        <AntDesign style={{ paddingRight: 8 }} name='hearto' size={32} color='black' />
+        <TouchableOpacity onPress={() => navigation.navigate('Favorite')}>
+          <AntDesign style={{ paddingRight: 8 }} name='hearto' size={32} color='black' />
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <AntDesign style={{ paddingRight: 8 }} name='shoppingcart' size={32} color='black' />
         </TouchableOpacity>

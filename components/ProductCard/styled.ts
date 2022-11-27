@@ -46,5 +46,8 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+  },
+  warning: {
+    marginTop: 16,
   }
 });

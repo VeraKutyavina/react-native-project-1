@@ -79,8 +79,19 @@ class ProductStore {
   ]
 
   addCartCount(id: string) {
-    const newProd = this.products.find(product => product.id !== id);
-    if (newProd) this.products = [...this.products, {...newProd, inCart: newProd.inCart + 1}]
+    this.products = this.products.map(product => (product.id === id ? { ...product, inCart: product.inCart + 1 } : product))
+  }
+
+  removeCartCount(id: string) {
+    this.products = this.products.map(product => (product.id === id ? { ...product, inCart: 0} : product))
+  }
+
+  createFavorite(id: string) {
+    this.products = this.products.map(product => (product.id === id ? { ...product, isFavorite: true } : product))
+  }
+
+  deleteFavorite(id: string) {
+    this.products = this.products.map(product => (product.id === id ? { ...product, isFavorite: false } : product))
   }
 
   constructor() {

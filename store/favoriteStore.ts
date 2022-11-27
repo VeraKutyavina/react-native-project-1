@@ -8,11 +8,11 @@ class FavoriteStore {
     makeAutoObservable(this)
   }
 
-  createTodo(product: TProduct) {
+  createFavorite(product: TProduct) {
     this.favorites.push(product)
   }
 
-  deleteTodo(id: string) {
+  deleteFavorite(id: string) {
     this.favorites = this.favorites.filter(product => product.id !== id)
   }
 }

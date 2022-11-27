@@ -1,8 +1,10 @@
 import React, {useMemo} from 'react';
 import { observer } from 'mobx-react-lite'
-import { View, Text, Image, ScrollView } from "react-native";
+import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native";
 import CartStore from '../../store/cartStore';
+import ProductStore from '../../store/productStore';
 import { styles } from "./styled";
+import CounterInput from "../CounterInput";
 
 type TCart = {
   navigation: any;
@@ -16,21 +18,31 @@ const Cart = ({}: TCart) => {
     0,
   ), [products]);
 
+  const removeFromCart = (id: string) => {
+    CartStore.deleteFromCart(id)
+    ProductStore.removeCartCount(id)
+  }
+
   return (
     <>
       <ScrollView>
         <View style={styles.container}>
           {products.map(({ name, photo, price, id, inCart }) => (
-            <View key={id} style={styles.productWrapper}>
-              <View style={styles.nameWrapper}>
-                {/*@ts-ignore*/}
-                <Image style={styles.img} source={photo} />
-                <View>
-                  <Text style={styles.name}> {name} </Text>
-                  <Text style={styles.name}> {inCart} шт. </Text>
+            <View key={id}>
+              <View style={styles.productWrapper}>
+                <View style={styles.nameWrapper}>
+                  {/*@ts-ignore*/}
+                  <Image style={styles.img} source={photo} />
+                  <View>
+                    <Text style={styles.name}> {name} </Text>
+                    <CounterInput defaultValue={inCart} fontSize={14} id={id} />
+                  </View>
                 </View>
+                <Text style={styles.price}> {inCart * price} руб. </Text>
               </View>
-              <Text style={styles.price}> {inCart * price} руб. </Text>
+              <TouchableOpacity onPress={() => removeFromCart(id)}>
+                <Text style={styles.remove}> Remove </Text>
+              </TouchableOpacity>
             </View>
           ))}
         </View>
