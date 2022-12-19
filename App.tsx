@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TodoList from './components/TodoList';
-import TaskPage from './components/TaskPage';
-import DoneTasks from './components/DoneTasks';
-import TodoStore from './store/todo'
+import HomePage from './components/HomePage';
+import CityPage from './components/CityPage';
 
 const Stack = createNativeStackNavigator();
 
-const AppTodo = observer(() => {
+const AppWeather = observer(() => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home">
-          {props => <TodoList {...props} />}
+          {props => <HomePage {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="DoneTasks">
-          {props => <DoneTasks {...props} todos={TodoStore.todos.filter(({ completed }) => completed)} />}
+        <Stack.Screen name="CityPage">
+          {props => <CityPage {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="TaskPage">
-          {props => <TaskPage {...props} />}
-        </Stack.Screen> 
       </Stack.Navigator>
     </NavigationContainer>
   );
 })
 
-export default AppTodo;
+export default AppWeather;
 
 

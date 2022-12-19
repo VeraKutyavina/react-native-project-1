@@ -1,22 +1,17 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import ItemsList from '../ItemsList';
-import TodoForm from '../TodoForm';
 
-export type TTodoList = {
+export type THomePage = {
   navigation: any;
 }
 
-const TodoList = ({ navigation }: TTodoList) => {
+const HomePage = ({ navigation }: THomePage) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Todo List </Text>
+      <Text style={styles.title}> Weather </Text>
       <ItemsList navigation={navigation} />
-      <TouchableOpacity onPress={() => navigation.navigate('DoneTasks')}>
-        <Text> Перейти к выполненным </Text>
-      </TouchableOpacity>
-      <TodoForm />
       <StatusBar style="auto" />
     </View>
   );
@@ -38,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TodoList;
+export default HomePage;
